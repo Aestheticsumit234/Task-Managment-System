@@ -1,7 +1,33 @@
 @import "tailwindcss";
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+.cell {
+  display: inline-block;
+  width: 50%;
+  text-align: center;
+}
+
+.Circle {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: rgba(203, 37, 156, 0.671);
+  box-shadow: 4px -40px 60px 5px rgb(40, 37, 203) inset;
+}
+
+.rotate_in_up_left {
+  animation: rotate_in_up_left 2s ease infinite;
+}
+
+@keyframes rotate_in_up_left {
+  0% {
+    transform-origin: left bottom;
+    transform: rotate(90deg);
+    opacity: 0;
+  }
+  100% {
+    transform-origin: left bottom;
+    transform: rotate(0);
+    opacity: 1;
+  }
 }
