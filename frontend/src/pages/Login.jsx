@@ -3,16 +3,18 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import TextInput from "../components/TextInput";
 import Button from "../components/Button";
+import { useSelector } from "react-redux";
 
 const Login = () => {
+  const { user } = useSelector((state) => state.auth);
   const [isLoading, setIsLoading] = useState(false);
-  const user = "";
   const navigate = useNavigate();
 
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm({
     mode: "onChange",
   });
@@ -28,7 +30,11 @@ const Login = () => {
     } finally {
       setIsLoading(false);
     }
+
+    reset();
   };
+
+  console.log(user);
 
   useEffect(() => {
     if (user) navigate("/dashboard");
