@@ -1,5 +1,6 @@
-import React from "react";
+import React, { Fragment, useRef } from "react";
 import { Route, Routes, Navigate, Outlet, useLocation } from "react-router-dom";
+import { IoMdClose } from "react-icons/io";
 import Dashboard from "./pages/Dashboard";
 import Tasks from "./pages/Tasks";
 import User from "./pages/User";
@@ -7,9 +8,13 @@ import Trash from "./pages/Trash";
 import TaskDetails from "./pages/TaskDetails";
 import Login from "./pages/Login";
 import { Toaster } from "sonner";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Sidebar from "./components/Sidebar";
 import Navbar from "./components/Navbar";
+import { SetOpenSidebar } from "./redux/Slices/authSlice";
+import { Transition } from "@headlessui/react";
+import clsx from "clsx";
+import MobileSidebar from "./components/MobileSidebar";
 
 function LayOut() {
   const { user } = useSelector((state) => state.auth);
@@ -20,7 +25,7 @@ function LayOut() {
         {/* sidebar */}
         <Sidebar />
       </div>
-      {/* <MobileSidebar /> */}
+      <MobileSidebar />
       <div className="flex-1 overflow-y-auto ">
         <Navbar />
         <div className="p-4 2xl:px-10">

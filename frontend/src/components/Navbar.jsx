@@ -17,7 +17,7 @@ const Navbar = () => {
         >
           <GiHamburgerMenu />
         </button>
-        <div className="w-80 2xl:w-400 flex items-center py-2 px-3 gap-2 rounded-full bg-[#f3f4f6]">
+        <div className="w-64 2xl:w-400 flex items-center py-2 px-3 gap-2 rounded-full bg-[#f3f4f6]">
           <MdOutlineSearch />
           <input
             type="text"
